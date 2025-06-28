@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Given 被贈與的未來</title>
+  <link rel="stylesheet" href="css/animation3.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Great+Vibes&family=Lexend:wght@100..900&family=Zen+Kurenaido&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a href="animation2.html" class="pre-arrow" title="前往上一頁">&#9668;</a>
+  <a href="index.html" class="home-logo">
+    <img src="image/main-icon.png" alt="返回首頁" />
+  </a>
+
+  <!-- 中央半透明框 -->
+  <div class="center-box">
+    <h1>Given劇場版</h1>
+    <p>《Given劇場版》主要描述春秋雨的戀愛線。一開始是秋雨相愛但早已分手，維持著同居但雙方只是炮友。兩人都因為如此而備感煎熬，後來真冬因為樂團的事情去了秋彥家才得知原來秋彥跟雨月的關係。而春樹則是從以前開始就單戀著秋彥但並未明說。一切的轉折從秋彥跟雨月又一次的爭吵，秋彥被趕出家中，無奈之下只好寄居春樹家。而在秋雨兩人分開的這段期間，雙方也都漸漸的有了些許的心境轉變;春秋同居之後也開始對對方有更深層的了解。真冬去找雨月詢問歌曲靈感時，雨月便跟他訴說了他的真實想法:即使關係無法回復原狀，即是分道揚鑣，多希望至少留下我們的音樂也好。後來真冬將這份情感寫進了要徵選的歌曲中並上台演出，而這首歌也順利的傳達到春秋雨三人的內心中，結束之後，秋雨分道揚鑣，各自踏上旅程;而春秋則最後走到了一起。後來在《Given劇場版--去海邊》中，真冬跟已在海外揚名天下的雨月通話，跟雨月說他確實有留存在音樂中。至此，春秋雨三人虐戀結束。</p>
+  </div>
+
+  <!-- 漢堡選單 -->
+  <div class="hamburger" id="hamburger">&#9776;</div>
+
+  <!-- 導覽列 -->
+  <nav class="nav-menu" id="navMenu">
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="mymainpage2.html">故事簡介</a></li>
+      <li class="has-submenu">
+        <a href="#" class="submenu-toggle">功能導覽</a>
+        <ul class="submenu">
+          <li><a href="character.html">登場角色</a></li>
+          <li><a href="song.html">歌曲</a></li>
+          <li><a href="comic.html">漫畫/動畫</a></li>
+          <li><a href="bandprofile.html">樂團介紹</a></li>
+          <li><a href="author.html">作者帳號</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <script>
+    // 漢堡選單切換
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    // 子選單滑動切換
+    document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        const parentLi = this.parentElement;
+        const submenu = this.nextElementSibling;
+
+        if (submenu.style.display === 'block') {
+          submenu.style.maxHeight = '0';
+          submenu.style.display = 'none';
+          parentLi.classList.remove('active');
+        } else {
+          submenu.style.display = 'block';
+          submenu.style.maxHeight = submenu.scrollHeight + 'px';
+          parentLi.classList.add('active');
+        }
+      });
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+    const centerBox = document.querySelector('.center-box');
+    if (centerBox) {
+        // 延遲一點點時間讓動畫更自然
+        setTimeout(() => {
+        centerBox.classList.add('visible');
+        }, 100);
+    }
+    });
+  </script>
+  <a href="animation4.html" class="next-arrow" title="前往下一頁">&#9658;</a>
+</body>
+</html>

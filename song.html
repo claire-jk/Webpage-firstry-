@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Given 被贈與的未來</title>
+  <link rel="stylesheet" href="css/song.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Great+Vibes&family=Lexend&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+</head>
+<body class="bg-0">
+  <a href="index.html" class="home-logo">
+    <img src="image/main-icon.png" alt="返回首頁">
+  </a>
+
+  <!-- 響應式標題 -->
+  <h1 class="song-title-main">Song</h1>
+
+  <!-- 中央主區塊 -->
+  <div class="song-main-container">
+    <div class="circle-video">
+      <iframe src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="info-card">
+      <h2 class="song-title">歌曲標題</h2>
+      <p class="song-info">歌曲簡介</p>
+    </div>
+  </div>
+
+  <!-- 選擇器圓圈（一般版底部 / 手機版側邊） -->
+  <div class="song-selector">
+    <!-- 每個小圓圈圖示 -->
+    <div class="circle-thumbnail" data-index="0">
+      <img src="image/song0.jpg" alt="キヅアト">
+    </div>
+    <div class="circle-thumbnail" data-index="1">
+      <img src="image/song1.jpg" alt="まるつけ">
+    </div>
+    <div class="circle-thumbnail" data-index="2">
+      <img src="image/song2.jpg" alt="冬のはなし">
+    </div>
+    <div class="circle-thumbnail" data-index="3">
+      <img src="image/song3.jpg" alt="うらがわの存在">
+    </div>
+    <div class="circle-thumbnail" data-index="4">
+      <img src="image/song4.jpg" alt="夜が明ける">
+    </div>
+    <div class="circle-thumbnail" data-index="5">
+      <img src="image/song5.jpg" alt="僕らだけの主題歌">
+    </div>
+    <div class="circle-thumbnail" data-index="6">
+      <img src="image/song6.jpg" alt="パレイド">
+    </div>
+    <div class="circle-thumbnail" data-index="7">
+      <img src="image/song7.jpg" alt="ストレイト">
+    </div>
+    <div class="circle-thumbnail" data-index="8">
+      <img src="image/song8.jpg" alt="スーパーウルトラ I LOVE YOU">
+    </div>
+    <div class="circle-thumbnail" data-index="9">
+      <img src="image/song9.jpg" alt="海へ">
+    </div>
+    <div class="circle-thumbnail" data-index="10">
+      <img src="image/song10.jpg" alt="結言">
+    </div>
+  </div>
+
+  <!-- 漢堡選單 -->
+  <div class="hamburger" id="hamburger">&#9776;</div>
+
+  <!-- 導覽列 -->
+  <nav class="nav-menu" id="navMenu">
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="mymainpage2.html">故事簡介</a></li>
+      <li class="has-submenu">
+        <a href="#" class="submenu-toggle">功能導覽</a>
+        <ul class="submenu">
+          <li><a href="character.html">登場角色</a></li>
+          <li><a href="song.html">歌曲</a></li>
+          <li><a href="comic.html">漫畫/動畫</a></li>
+          <li><a href="bandprofile.html">樂團介紹</a></li>
+          <li><a href="author.html">作者帳號</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- JavaScript -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        const parentLi = this.parentElement;
+        const submenu = this.nextElementSibling;
+        if (submenu.style.display === 'block') {
+          submenu.style.maxHeight = '0';
+          submenu.style.display = 'none';
+          parentLi.classList.remove('active');
+        } else {
+          submenu.style.display = 'block';
+          submenu.style.maxHeight = submenu.scrollHeight + 'px';
+          parentLi.classList.add('active');
+        }
+      });
+    });
+
+    const totalSongs = 11;
+    let currentIndex = 0;
+
+    const body = document.body;
+    const videoEl = document.querySelector('.circle-video iframe');
+    const videoWrapper = document.querySelector('.circle-video');
+    const infoCard = document.querySelector('.info-card');
+    const titleEl = document.querySelector('.song-title');
+    const infoEl = document.querySelector('.song-info');
+
+    const songData = [
+      { title: "キヅアト",info: "歌曲出處: Given被贈與的未來 動畫op",extra: "キヅアト是Centimillimental的出道作，也是動畫版的片頭曲，在創作這首歌前他便認為op是這部動畫的入口，所以必須100%要是Given的「臉」。",  videoUrl: "https://www.youtube.com/embed/xxxxx0" },
+      { title: "まるつけ", info: "歌曲出處: Given被贈與的未來 動畫ed",extra: "まるつけ可以翻成兜圈或是畫圈的意思，就像是真冬一直不停的迷茫著繞來繞去，在歌中有句どうかな（怎麼樣呢）出現了很多遍。旋律從一開始淡淡的描述，接著越來越激動地詢問想尋求解答，到最後曲尾重新回歸平靜，如同真冬在經歷痛苦、不斷徬徨兜著圈的時候，找到了能一起度過難關的立夏。",  videoUrl: "https://www.youtube.com/embed/xxxxx1" },
+      { title: "冬のはなし", info: "歌曲出處: Given被贈與的未來 動畫插曲",extra: "這首歌在由紀離世後，真冬第一次開口將思念含進歌詞一併唱出，所以第一次唱的時候帶有那種悲傷、欲將壓抑許久的情緒傾洩而出的感覺;而這首歌之後還有在劇場版去海邊出現過，那時候的真冬已經好好的將由紀封存在心底，開朗的過著每一天，因此當他們再次在舞台演出時，真冬的唱法便流露出一種釋懷的感覺。",  videoUrl: "https://www.youtube.com/embed/xxxxx2" },
+      { title: "うらがわの存在", info: "演歌曲出處: Given被贈與的未來 反面的存在--劇場版",extra: "是一首純粹表達戀愛情感的歌曲。這部劇場版算是一個小番外，裡面講述著真冬在創作出夜が明ける之前的日常。而這首歌便是在講述夏冬兩個反面的存在，卻在交流中互相用自己彌補了對方的空缺。",  videoUrl: "https://www.youtube.com/embed/xxxxx3" },
+      { title: "夜が明ける", info: "歌曲出處: Given被贈與的未來--劇場版",extra: "這首歌的歌名「夜が明ける (天終將明)」有兩個含意，一個是比較悲觀的角度，「即使無法離開過去，明日終將無可避免的到來」；另一個則是比較樂觀的角度，「長夜過後終將迎來光明與希望」。「經歷了漫長的黑夜，人們才知道了光」若正處於悲傷，同時也代表著即將迎來美好，既然未來的事誰也不知道，那不就代表還有希望嗎？所以不用擔心，勇敢的放手吧，明日終將到來。",  videoUrl: "https://www.youtube.com/embed/xxxxx4" },
+      { title: "僕らだけの主題歌", info: "歌曲出處: Given被贈與的未來--劇場版",extra: "這首歌是劇場版的主題曲。歌詞便是在隱涉劇場版中的三位主角--春秋雨。意涵著雨月跟秋彥即將分別，踏上各自的旅程尋找自己的歸處，然而即使分別，那段兩人一起度過的日子依舊被譜進歌中，亦留存於他們的記憶中;而春樹跟秋彥也終於相互坦白對對方的心意，在歷經重重困難之後，兩條分岔的路最終交叉、重和。",  videoUrl: "https://www.youtube.com/embed/xxxxx5" },
+      { title: "パレイド", info: "歌曲出處: Given被贈與的未來 柊mix--劇場版",extra: "這首歌是syh演唱的歌曲。syh柊所創作的歌曲不同於given真冬創作的歌曲，從兩人的個性便能推測出兩人的風格有所不同--真冬善於壓抑感情，偏向將歌詞帶入感情，因此曲風較為緩和;然而柊是較為外向的人，因此他的曲風更加活潑，時常為他人帶來正向情緒，較偏流行歌的風格。這首歌在去海邊劇場版也有出現一小段。",  videoUrl: "https://www.youtube.com/embed/xxxxx6" },
+      { title: "ストレイト", info: "歌曲出處: Given被贈與的未來 柊mix--劇場版",extra: "這首歌也是syh的歌曲，如同柊的個性一般，這首歌也是非常正向而且曲調輕快活潑的歌風。這首歌在去海邊劇場版也有出現一小段。",  videoUrl: "https://www.youtube.com/embed/xxxxx7" },
+      { title: "スーパーウルトラ I LOVE YOU", info: "歌曲出處: Given被贈與的未來 柊mix--劇場版",extra: "這首歌是柊mix的主題曲。歌曲便是意涵著本劇的主角兩人--柊跟玄純。蔗部劇場版主要是在講述兩人發現對對方的心意之後的一些心境上的轉變以及最終理解並奔向對方。歌詞比較偏向以玄純的視角寫，流露著唯一的愛，偏向忠犬類型，不求回報的愛。",  videoUrl: "https://www.youtube.com/embed/xxxxx8" },
+      { title: "海へ", info: "歌曲出處: Given被贈與的未來--劇場版",extra: "這首歌是從一開始便慢慢鋪成的伏筆。這首歌是由紀還在世時就已經在創作的歌曲，在他過世之後一段時間後鹿島柊便將歌曲的Demo交給立夏把剩下的歌曲做完。歌曲中的間奏旋律便是當年真冬無意間哼出的旋律，被由紀寫入草稿後立夏並沒有刪掉它。而這段旋律也曾經出現在真冬其他歌曲中。這一首海へ是對過去的放下與釋懷，並且勇敢懷抱未來:對立夏來說是將過去的由紀還給真冬;對真冬來說是開導;對柊跟玄純便是完成了一件由紀生前未能完成的願望。",  videoUrl: "https://www.youtube.com/embed/xxxxx9" },
+      { title: "結言", info: "歌曲出處: Given被贈與的未來--劇場版",extra: "いつか死んでしまうけど ぼくが死んでしまうけど この唄が口ずさめば それがぼくの証だから きみはぼくの証だから 雖然總有一天會死去，雖然我會死去，但只要你哼唱這首歌，那就是我存在的證明，你就是我存在的證明。最後由紀在另一個世界，繼續聽著他的心上人的歌聲。就像雨月說的:什麼都失去都沒關係，至少最後，讓我永存在音樂當中。一個小小的回憶又能怎能夠在汪洋的記憶中存留，然而音樂卻能夠寄託過去現在以及未來。即使在死亡和分離面前，回憶能夠讓兩人以某種形式永遠相連。這種情感既柔軟又沉重，是由紀最後的掛念，是立夏送給真冬的禮物。",  videoUrl: "https://www.youtube.com/embed/xxxx10" }
+    ];
+
+    function updateDisplay() {
+      for (let i = 0; i < totalSongs; i++) {
+        body.classList.remove(`bg-${i}`);
+      }
+      body.classList.add(`bg-${currentIndex}`);
+      const song = songData[currentIndex];
+      videoEl.src = song.videoUrl;
+      titleEl.textContent = song.title;
+      infoEl.textContent = `${song.info}｜${song.extra}`;
+
+      videoWrapper.classList.remove('active');
+      infoCard.classList.remove('active');
+      setTimeout(() => {
+        videoWrapper.classList.add('active');
+        infoCard.classList.add('active');
+      }, 100);
+    }
+
+    document.querySelectorAll('.circle-thumbnail').forEach(thumb => {
+      thumb.addEventListener('click', function () {
+        const index = parseInt(this.getAttribute('data-index'));
+        currentIndex = index;
+        updateDisplay();
+      });
+    });
+
+    updateDisplay();
+
+    // IntersectionObserver for animation
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-slidein');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    observer.observe(document.getElementById('mainContainer'));
+  </script>
+</body>
+</html>
