@@ -1,0 +1,160 @@
+/* 字體與背景 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Zen Kurenaido', 'Lexend', 'Arial', sans-serif;
+  background-color: #000;
+  background-image: url('../image/comicbackgroundtablet.jpg'); /* ← 改成你的實際圖片路徑 */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* 返回首頁圖標 */
+.home-logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.home-logo img {
+  width: 150px;
+  transition: transform 0.3s ease;
+}
+
+.home-logo img:hover {
+  transform: scale(1.1);
+}
+
+/* 左側返回箭頭樣式 */
+.forward-arrow {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: rgb(87, 188, 255);
+  text-decoration: none;
+  z-index: 1001;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.forward-arrow:hover {
+  transform: translateY(-50%) scale(1.2);
+  color: #00aaff;
+}
+
+/* 漢堡選單按鈕 */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1001;
+  color: white; /* ← 改為白色以在黑色背景上可見 */
+  display: block;
+}
+
+/* 導覽選單樣式 */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  width: 200px;
+  height: 100%;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.nav-menu.show {
+  transform: translateX(0);
+}
+
+.nav-menu ul {
+  list-style: none;
+  padding: 60px 20px;
+  margin: 0;
+}
+
+.nav-menu ul li {
+  margin: 20px 0;
+}
+
+.nav-menu ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+}
+
+/* 子選單 */
+.has-submenu .submenu {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding-left: 15px;
+  list-style: none;
+  margin-top: 0;
+}
+
+.has-submenu.active .submenu {
+  display: block;
+  max-height: 500px;
+  margin-top: 10px;
+}
+
+.has-submenu > a::after {
+  content: ' ▼';
+  font-size: 0.8em;
+  margin-left: 5px;
+}
+
+/* 書本 3×3 排列區塊 */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 100px 10vw;
+  justify-items: center;
+}
+
+/* 單一本書樣式 */
+.book {
+  width: 100%;
+  max-width: 250px;
+  transition: transform 0.3s ease;
+}
+
+.book img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.book:hover img {
+  transform: scale(1.08);
+}
+
+/* 響應式設計 */
+@media (max-width: 1024px) {
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .book-grid {
+    grid-template-columns: 1fr;
+    padding: 80px 5vw;
+  }
+}
